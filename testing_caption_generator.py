@@ -60,12 +60,13 @@ tokenizer = load(open("tokenizer.p","rb"))
 model = load_model('models/model_9.h5')
 xception_model = Xception(include_top=False, pooling="avg")
 
-photo = extract_features("sis.jpg", xception_model)
-img = Image.open("sis.jpg")
+photo = extract_features("image.jpg", xception_model)
+img = Image.open("image.jpg")
 
 description = generate_desc(model, tokenizer, photo, max_length)
 print("\n\n")
 print(description)
 plt.imshow(img)
+
 
 
