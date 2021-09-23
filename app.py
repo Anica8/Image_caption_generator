@@ -5,6 +5,7 @@ from os import path
 from pathlib import Path
 import testing_caption_generator as tcg
 
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -14,7 +15,7 @@ def home_page():
 
 @app.route('/result',methods=['GET'])
 def imageUpload():
-    imgPath='image.jpg'
+    imgPath=''
     res=tcg.result(imgPath)
     return res
 
