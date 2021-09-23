@@ -64,7 +64,7 @@ def result(imgPath):
     img = Image.open(imgPath)
 
     description = generate_desc(model, tokenizer, photo, max_length)
-    print("\n\n")
+    #print("\n\n")
     return description
     #plt.imshow(img)
 
