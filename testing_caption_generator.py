@@ -9,10 +9,10 @@ import matplotlib.pyplot as plt
 import argparse
 
 
-ap = argparse.ArgumentParser()
-ap.add_argument('-i', '--image', required=True, help="Image Path")
-args = vars(ap.parse_args())
-img_path = args['image']
+# ap = argparse.ArgumentParser()
+# ap.add_argument('-i', '--image', required=True, help="Image Path")
+# args = vars(ap.parse_args())
+# img_path = args['image']
 
 def extract_features(filename, model):
         try:
@@ -53,20 +53,20 @@ def generate_desc(model, tokenizer, photo, max_length):
             break
     return in_text
 
+def result(imgPath):
+    #path = 'Flicker8k_Dataset/111537222_07e56d5a30.jpg'
+    max_length = 32
+    tokenizer = load(open("tokenizer.p","rb"))
+    model = load_model('models/model_9.h5')
+    xception_model = Xception(include_top=False, pooling="avg")
 
-#path = 'Flicker8k_Dataset/111537222_07e56d5a30.jpg'
-max_length = 32
-tokenizer = load(open("tokenizer.p","rb"))
-model = load_model('models/model_9.h5')
-xception_model = Xception(include_top=False, pooling="avg")
+    photo = extract_features(imgPath, xception_model)
+    img = Image.open(imgPath)
 
-photo = extract_features("image.jpg", xception_model)
-img = Image.open("image.jpg")
-
-description = generate_desc(model, tokenizer, photo, max_length)
-print("\n\n")
-print(description)
-plt.imshow(img)
+    description = generate_desc(model, tokenizer, photo, max_length)
+    print("\n\n")
+    return description
+    #plt.imshow(img)
 
 
 
