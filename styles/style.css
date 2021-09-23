@@ -4,6 +4,9 @@ body, html {
     justify-content: center;
     background: #F5F5F5;
   }
+  header{
+    padding-inline:100px;
+  }
   .card {
     background: white;
     display: flex;
