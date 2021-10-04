@@ -1,5 +1,5 @@
-var CLOUDINARY_URL='https://api.cloudinary.com/v1_1/dcnnjfyts/upload';
-var CLOUDINARY_UPLOAD_PRESET='swibspea'
+var CLOUDINARY_URL='';
+var CLOUDINARY_UPLOAD_PRESET=''
 var imgPreview=document.getElementById('img-preview');
 var fileUpload=document.getElementById('file-upload');
 
