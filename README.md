@@ -10,5 +10,5 @@ pip3 install -r requirements.txt
 ```
 ### Running code
 ```bash
-python3 testing_caption_generator.py -i/--image "Image_path"
+python3 app.py
 ```
