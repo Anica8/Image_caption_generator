@@ -2,7 +2,6 @@
   <head>
     <meta charset="utf-8">
     <title>Caption-This</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel="stylesheet" href="/styles/style.css">
   </head>
   <body>
@@ -10,15 +9,31 @@
       <header>
         <h1>Caption-This</h1>
         </header>
-      <img src="http://fillmurray.com/g/300/300" id="img-preview" />
-      <label class="file-upload-container" for="file-upload">
-        <input id="file-upload" type="file" style="display:none;">
-        Select an Image
-      </label>
-      <a href="result">Result</a>
+        <form enctype="multipart/form-data" method="POST"> 
+          <input type="file" name="pic" />
+          <input type="submit" value="Upload a file"/>
+        </form>
     </div>
-    <!-- Scripts -->
+    <!-- Scripts
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="/scripts/app.js"></script>
+    <script src="/scripts/app.js"></script> -->
   </body>
 </html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MY APP</title>
+</head>
+<body>
+
+<form action="http://localhost:5000/upload" enctype="multipart/form-data" method="POST"> 
+   <input type="file" name="pic" />
+   <input type="submit" value="Upload a file"/>
+</form>
+ 
+</body>
+</html> -->
