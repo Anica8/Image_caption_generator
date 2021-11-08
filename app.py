@@ -1,14 +1,11 @@
 from flask import Flask, render_template, Response, jsonify,request
 import testing_caption_generator as tcg
-from db import db,db_init
 from werkzeug.utils import secure_filename
-from models import Img
+
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///img.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db_init(app)
+
 
 @app.route('/')
 def home_page():
