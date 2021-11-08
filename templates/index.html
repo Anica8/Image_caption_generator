@@ -9,9 +9,9 @@
       <header>
         <h1>Caption-This</h1>
         </header>
-        <form enctype="multipart/form-data" method="POST"> 
-          <input type="file" name="pic" />
-          <input type="submit" value="Upload a file"/>
+        <form action="/upload" enctype="multipart/form-data" method='post'> 
+          <input type="file" name="pic" id="pic"/>
+          <input type="submit" value="upload"/> 
         </form>
     </div>
     <!-- Scripts
@@ -19,21 +19,3 @@
     <script src="/scripts/app.js"></script> -->
   </body>
 </html>
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>MY APP</title>
-</head>
-<body>
-
-<form action="http://localhost:5000/upload" enctype="multipart/form-data" method="POST"> 
-   <input type="file" name="pic" />
-   <input type="submit" value="Upload a file"/>
-</form>
- 
-</body>
-</html> -->
