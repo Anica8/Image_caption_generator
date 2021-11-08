@@ -1,11 +1,7 @@
 from flask import Flask, render_template, Response, jsonify,request
-import os
-from os import path
-from pathlib import Path
 import testing_caption_generator as tcg
 from db import db,db_init
 from werkzeug.utils import secure_filename
-from db import db_init, db
 from models import Img
 
 app = Flask(__name__)
@@ -20,37 +16,14 @@ def home_page():
 
 @app.route('/upload', methods=['POST'])
 def upload():
-    pic = request.files['pic']
+    if request.method == 'POST':
+        pic = request.files['pic']
+        pic.save(pic.filename)
     if not pic:
         return 'No pic uploaded!', 400
 
-    filename = secure_filename(pic.filename)
-    mimetype = pic.mimetype
-    if not filename or not mimetype:
-        return 'Bad upload!', 400
-
-    img = Img(img=pic.read(), name=filename, mimetype=mimetype)
-    db.session.add(img)
-    db.session.commit()
     desc=tcg.result(pic)
     return desc
-    #return 'Img Uploaded!', 200
-
-
-# @app.route('/<int:id>')
-# def get_img(id):
-#     img = Img.query.filter_by(id=id).first()
-#     if not img:
-#         return 'Img Not Found!', 404
-#     print(img.mimetype)
-#     return Response(img.img, mimetype=img.mimetype)
-
-
-# @app.route('/result',methods=['GET'])
-# def imageUpload():
-#     imgPath='image.jpg'
-#     res=tcg.result(imgPath)
-#     return res
 
 
 if __name__ == '__main__':
